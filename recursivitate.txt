@@ -1,0 +1,246 @@
+def binar(n):
+    if(n>=2):
+        return binar(n//2)*10+n%2
+    else:
+        return n%2
+print(binar(5))
+
+
+
+
+
+#Exercițiul 1: Progresie aritmetică
+#mplementați în Python o funcție recursivă pentru a calcula valoarea termenului de rang n∈N
+# pentru progresia aritmetică definită de relația: 
+#an=2×an−1−3,∀
+#n∈N
+#Se consideră valoare termenului a0=2
+#Funcția va primi ca unic parametru numărul natural n
+
+
+
+
+def progresie(n):
+    if n==0:
+        return 2;
+    else:
+        return 2*progresie(n-1)-3;
+
+print(progresie(2));
+
+
+
+
+
+
+
+#Exercițiul 2: Fibonacci
+#Implementați în Python o funcție recursivă pentru a calcula termenul de rang n
+#din șirul lui Fibonacci:
+#fibonacci(n)=⎧⎩⎨fibonacci(n−1)+fibonacci(n−2)10pentru n≠1saun≠0pentru n=1pentru n=0
+
+
+def fibonacci(n):
+    if n==0:
+        return 0;
+    elif n==1:
+        return 1;
+    else:
+        return fibonacci(n-1)+fibonacci(n-2);
+
+print(fibonacci(4));
+
+
+
+
+
+
+
+
+#Exercițiul 3: Suma primelor N numere naturale
+#Implementați în Python o funcție recursivă pentru a calcula suma primelor N
+#numere naturale.
+
+
+def suma(n):
+    if n==0:
+        return 0;
+    elif n==1:
+        return 1;
+    else:
+        return n+suma(n-1);
+
+print(suma(5));
+
+
+
+
+
+
+#a) Implementați în Python o funcție recursivă pentru a calcula produsul cifrelor unui număr dat ca parametru.
+
+
+def produs(n):
+    if n<10:
+        return n;
+    else:
+        return (n%10)*produs(n//10);
+
+print(produs(225));
+
+
+
+
+
+
+
+#b) Implementați în Python o funcție recursivă pentru a număra câte cifre are numărul dat ca parametru.
+
+
+def cifre(n):
+    if(n<10):
+        return 1;
+    else:
+        return 1+cifre(n//10);
+
+print(cifre(35));
+    
+    
+
+
+
+#d) Implementați în Python o funcție recursivă care returnează numărul de cifre pare a numărului dat ca parametru.
+    
+    
+def pare(n):
+    if n<10:
+        if n%10%2==0:
+            return 1;
+        else:
+            return 0;
+    else:
+        if(n%10%2==0):
+            return 1+pare(n//10);
+        else:
+            return pare(n//10);
+print(pare(2345));
+    
+    
+    
+  
+  
+  
+
+#c) Implementați în Python o funcție recursivă care returnează cifra maximă a numărului dat ca parametru.
+
+
+def cif_maxima(n):
+    def aux(c, n):
+        if n:
+            if n % 10 > c:
+                return aux(n % 10, n // 10)
+            else:
+                return aux(c, n // 10)
+        else:
+            return c
+
+    return aux(n % 10, n)
+
+print(str(cif_maxima(507)))
+
+
+
+
+
+
+#Exercițiul 5: Exponentul unui număr natural
+#Implementați în Python o funcție recursivă care calculează an,a≥1,n≥0,a,n∈N
+
+
+def putere(a,n):
+    if a==0:
+        return 0;
+    elif a==1 or n==0:
+        return 1;
+    else:
+        return a*putere(a,n-1);
+
+print(putere(2,3));
+
+
+
+
+
+
+#Exercițiul 6: Număr prim
+#Implementați în Python o funcție care returneaza True dacă un număr  n
+#este prim, altfel False.
+
+
+def prim(n):
+    
+    if n%2!=0 and n%3!=0 and n%5!=0 and n%7!=0:
+        return True;
+    else:
+        return False;
+
+print(prim(24));
+
+
+
+
+
+
+#Exercițiul 7: Cel mai mare divizor comun
+#mplementați în Python o funcție recursivă care calculează cel mai mare divizor comun.
+#Hint: cmmdc(a,b)=cmmdc(b,amodb),pentrub≠0
+
+
+def cmmdc(a,b):
+    if b==0:
+        return a;
+    else:
+        return cmmdc(b,a%b);
+
+print(cmmdc(2,4));
+
+
+ 
+ 
+ 
+
+#Exercițiul 9: Interval
+#Implementați în Python o funcție recursivă care primește două valori, min_value,
+#respectiv max_value și tipărește toate numerele naturale care se regăsesc în interiorul
+#intervalului ale cărui extremități sunt cele două valori. 
+    
+
+
+def interval(min_value,max_value):
+    if min_value<max_value:
+        print(min_value);
+        return interval(min_value+1,max_value);
+    else:
+        print(max_value);
+
+interval(2,8);
+
+
+
+def interval2(min_value, max_value):
+    if min_value<max_value-1:
+        print(min_value+1);
+        return interval2(min_value+1,max_value);
+    
+interval2(2,8);
+
+
+
+
+
+
+
+
+#a) Implementați în Python o funcție recursivă ce verifică dacă o cifră este prezentă sau nu într-un număr.
+
+
